@@ -161,20 +161,14 @@ module.exports = function(grunt) {
                 options: {
                 },
                 files: [
-                    { // ASSETS
+                    {
                         expand: true,
                         cwd: 'deploy/<%= visuals.timestamp %>',
-                        src: ['<%= visuals.timestamp %>/**/*'],
-                        dest: '<%= visuals.s3.path %>',
-                        params: { CacheControl: 'max-age=2678400' }
-                    },
-                    { // BOOT
-                        expand: true,
-                        cwd: 'deploy/<%= visuals.timestamp %>',
-                        src: ['boot.js'],
+                        src: ['**/*'],
                         dest: '<%= visuals.s3.path %>',
                         params: { CacheControl: 'max-age=60' }
-                    }]
+                    }
+                ]
             }
         },
 
@@ -218,7 +212,7 @@ module.exports = function(grunt) {
     grunt.registerTask('interactive', ['shell', 'template:bootjs', 'sass:interactive', 'copy:assets'])
     grunt.registerTask('default', ['clean', 'harness', 'interactive', 'connect', 'watch']);
     grunt.registerTask('build', ['clean', 'interactive']);
-    grunt.registerTask('deploy', ['loadDeployConfig', 'prompt:visuals', 'build', 'copy:deploy', 'aws_s3', 'boot_url']);
+    grunt.registerTask('deploy', ['loadDeployConfig', 'prompt:visuals', 'build', 'copy:harness', 'copy:deploy', 'aws_s3', 'boot_url']);
 
     grunt.loadNpmTasks('grunt-aws');
 

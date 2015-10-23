@@ -1,7 +1,7 @@
 Avon and Somerset Constabulary	South West	avon-and-somerset	0.0672593315	0.02920317063	0.04816924329	0.04255319149
 Bedfordshire Police	East of England	bedfordshire	0.2250410935	0.06149479659	0.09300265722	0.08653846154
 Cambridgeshire Constabulary	East of England	cambridgeshire	0.09729872111	0.02154531947	0.06847935549	
-Cheshire Constabulary	North West	cheshire	0.0308560108	0.006227296316	0.025	0.03787878788
+Cheshire Constabulary	North West	cheshire	0.0308560108	0.006227296316	0.02803738318	0.03787878788
 City of London Police	London	city-of-london	0.2136949153	0.06327372765		0.07874015748
 Cleveland Police	North East	cleveland	0.05522166011	0.01774691358	0.05251641138	0
 Cumbria Constabulary	North West	cumbria	0.01520631859	0.01143359719	0.01494885917	0.01209677419
@@ -24,17 +24,17 @@ Lincolnshire Police	East Midlands	lincolnshire	0.0240579105	0.01637852593	0.0240
 Merseyside Police	North West	merseyside	0.05494251692	0.03455608719	0.03737259343	0.0430396772
 Metropolitan Police Service	London	metropolitan	0.4022412848	0.1170874152	0.2759134756	0.1960955675
 Norfolk Constabulary	East of England	norfolk	0.03481806483	0.01797175866	0.04375126595	0.03423848878
-North Wales Police	Wales	north-wales	0.02505025896	0.008807588076	0.05215419501	
-North Yorkshire Police	Yorkshire & the Humber	north-yorkshire	0.03417890152	0.01076040172	0.02327680395	0.005602240896
-Northamptonshire Police	East Midlands	northamptonshire	0.08545390432	0.03882657463		0.02752293578
+North Wales Police	Wales	north-wales	0.02505025896	0.008807588076	0.01634241245	0.01260504202
+North Yorkshire Police	Yorkshire & the Humber	north-yorkshire	0.03417890152	0.01076040172		
+Northamptonshire Police	East Midlands	northamptonshire	0.08545390432	0.03882657463	0.05215419501	0.02752293578
 Northumbria Police	North East	northumbria	0.05426740134	0.01701268743	0.03748828491	0.0380952381
-Nottinghamshire Police	East Midlands	nottinghamshire	0.1117572255	0.04441260745	0.01634241245	0.01260504202
-South Wales Police	Wales	south-wales	0.06636772768	0.0197044335		0.05175600739
-South Yorkshire Police	Yorkshire & the Humber	south-yorkshire	0.09373913833	0.03337213815	0.009557019243	0.01097293343
-Staffordshire Police	West Midlands	staffordshire	0.05938057234	0.01872440023	0.02771755962	0.02239641657
-Suffolk Constabulary	East of England	suffolk	0.04802221481	0.02466960352	0.01492537313	0
-Surrey Police	South East	surrey	0.09599872835	0.03791208791	0.04049493813	0.03703703704
-Sussex Police	South East	sussex	0.06316322035	0.02096358955	0.03584229391	0
+Nottinghamshire Police	East Midlands	nottinghamshire	0.1117572255	0.04441260745		0.05175600739
+South Wales Police	Wales	south-wales	0.06636772768	0.0197044335	0.02771755962	0.02239641657
+South Yorkshire Police	Yorkshire & the Humber	south-yorkshire	0.09373913833	0.03337213815	0.01492537313	0
+Staffordshire Police	West Midlands	staffordshire	0.05938057234	0.01872440023		
+Suffolk Constabulary	East of England	suffolk	0.04802221481	0.02466960352	0.04049493813	0.03703703704
+Surrey Police	South East	surrey	0.09599872835	0.03791208791	0.03584229391	0
+Sussex Police	South East	sussex	0.06316322035	0.02096358955		
 Thames Valley Police	South East	thames-valley	0.1542560222	0.05052386496	0.09717669451	0.06595477387
 Warwickshire Police	West Midlands	warwickshire	0.07293839853	0.04914004914	0.08818958819	0.06390134529
 West Mercia Police	West Midlands	west-mercia	0.0375485923	0.01893373194	0.05415294548	0.02352941176

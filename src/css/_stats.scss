@@ -1,15 +1,15 @@
-$bar-height: 30px;
-$d-sep: 8px;
+$bar-height: 25px;
+$d-sep: 4px;
 
 dl {
     @include fs-textSans(3);
     line-height: $bar-height;
-    margin-top: -$d-sep;
+    margin: -$d-sep 0 12px;
 }
 
 dt {
     float: left;
-    width: 80px;
+    width: 90px;
     clear: left;
     margin-right: 20px;
 }
@@ -22,6 +22,8 @@ dd {
 
 .bar {
     height: $bar-height;
-    text-indent: 10px;
-    background-color: #94b1ca;
+    margin-left: 60px;
+    text-indent: -60px;
+    background-image: url(assets/imgs/officer.svg);
+    background-size: contain;
 }

@@ -96,8 +96,8 @@ window.embed = function (el) {
 };
 
 window.main = function (el) {
-    var regions = ['East Midlands', 'East of England', 'London', 'South West', 'Wales', 'West Midlands',
-        'Yorkshire & the Humber'];
+    var regions = ['East Midlands', 'East of England', 'London', 'South East', 'South West', 'Wales', 'West Midlands',
+        'Yorkshire & the Humber', 'North East', 'North West'];
 
     el.querySelector('.js-regions').innerHTML = regions.map(region => {
         var regionForceStats = stats.filter(s => s.region === region);

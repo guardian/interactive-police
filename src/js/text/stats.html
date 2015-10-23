@@ -1,27 +1,20 @@
+{{##def.stat:params:
+    <dt>{{=params.name}}</dt>
+    <dd>
+        {{?isNaN(params.percentage)}}
+            No data
+        {{??}}
+            <div class="bar" style="width: {{=params.percentage / it.max * 100}}%">
+                {{=(params.percentage * 100).toFixed(2)}}%
+            </div>
+        {{?}}
+    </dd>
+#}}
+
 <h3>{{=it.stats.force}}</h3>
 <dl>
-    <dt>Population</dt>
-    <dd>
-        <div class="bar" style="width: {{=it.stats.population / it.max * 100}}%">
-            {{=(it.stats.population * 100).toFixed(2)}}%
-        </div>
-    </dd>
-    <dt>Applications</dt>
-    <dd>
-        <div class="bar" style="width: {{=it.stats.applications / it.max * 100}}%">
-            {{=(it.stats.applications * 100).toFixed(2)}}%
-        </div>
-    </dd>
-    <dt>Appointments</dt>
-    <dd>
-        <div class="bar" style="width: {{=it.stats.appointments / it.max * 100}}%">
-            {{=(it.stats.appointments * 100).toFixed(2)}}%
-        </div>
-    </dd>
-    <dt>Police force</dt>
-    <dd>
-        <div class="bar" style="width: {{=it.stats.current / it.max * 100}}%">
-            {{=(it.stats.current * 100).toFixed(2)}}%
-        </div>
-    </dd>
+    {{#def.stat:{name:"Population", percentage:it.stats.population} }}
+    {{#def.stat:{name:"Applications", percentage:it.stats.applications} }}
+    {{#def.stat:{name:"Appointments", percentage:it.stats.appointments} }}
+    {{#def.stat:{name:"Police force", percentage:it.stats.current} }}
 </dl>
