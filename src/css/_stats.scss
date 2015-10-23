@@ -1,0 +1,27 @@
+$bar-height: 30px;
+$d-sep: 8px;
+
+dl {
+    @include fs-textSans(3);
+    line-height: $bar-height;
+    margin-top: -$d-sep;
+}
+
+dt {
+    float: left;
+    width: 80px;
+    clear: left;
+    margin-right: 20px;
+}
+
+dd {
+    display: block;
+    overflow: hidden;
+    margin: 0 0 $d-sep 0;
+}
+
+.bar {
+    height: $bar-height;
+    text-indent: 10px;
+    background-color: #94b1ca;
+}

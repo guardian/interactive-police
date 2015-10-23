@@ -1,0 +1,9 @@
+<li class="regions__region">
+    <h2>{{=it.region}}</h2>
+    <p>Some copy here</p>
+    <ul class="forces">
+        {{~it.forceHTMLs :forceHTML:i}}
+            <li class="forces__force">{{=forceHTML}}</li>
+        {{~}}
+    </ul>
+</li>

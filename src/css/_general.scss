@@ -19,62 +19,46 @@ a {
     }
 }
 
-#interactive {
-    padding: 10px;
+p {
+    margin: 0 0 8px 0;
 }
 
-h2 {
-    @include fs-headline(3);
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h2,
+h3 {
     margin: 0 0 12px 0;
 }
 
-$bar-height: 30px;
-$d-sep: 8px;
-
-dl {
-    @include fs-textSans(3);
-    line-height: $bar-height;
-    margin-top: -$d-sep;
+h2 {
+    @include fs-header(4);
 }
 
-dt {
-    float: left;
-    width: 80px;
+h3 {
+    @include fs-bodyHeading(2);
+}
+
+// MAIN ONLY
+.regions__region {
     clear: left;
-    margin-right: 20px;
 }
 
-dd {
-    display: block;
-    overflow: hidden;
-    margin: 0 0 $d-sep 0;
+.forces {
+    margin-right: -20px;
 }
 
-
-.bar {
-    width: 100%;
-    height: $bar-height;
-}
-
-.bar__part,
-.bar__rest {
-    height: $bar-height;
+.forces__force {
+    width: 50%;
+    padding: 0 20px 8px 0;
     box-sizing: border-box;
-}
-
-.bar__part {
     float: left;
-    background-color: #94b1ca;
-    padding-left: 10px;
 }
 
-.bar__rest {
-    overflow: hidden;
-    padding-right: 10px;
-    text-align: right;
-    background-color: #dcdcdc;
-}
-
+// EMBED ONLY
 .locate {
     float: left;
     margin: 0 10px 0 0;

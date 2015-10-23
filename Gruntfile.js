@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: ['src/js/**/*'],
-                tasks: ['shell:interactive'],
+                tasks: ['shell'],
             },
             css: {
                 files: ['src/css/**/*'],
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                 tasks: ['copy:assets']
             },
             harness: {
-                files: ['harness/**/*'],
+                files: ['harness/**/*', 'src/*.html'],
                 tasks: ['harness']
             }
         },
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
             harness: {
                 files: [
                     {expand: true, cwd: 'harness/', src: ['curl.js', 'index.html'], dest: 'build'},
-                    {src: 'src/embed.html', dest: 'build/embed.html'}
+                    {expand: true, cwd: 'src/', src: ['*.html'], dest: 'build'}
                 ]
             },
             assets: {
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true, cwd: 'build/',
-                        src: ['boot.js', 'main.css', 'main.js', 'embed.html', 'assets/**/*'],
+                        src: ['boot.js', 'main.css', 'main.js', '*.html', 'assets/**/*'],
                         dest: 'deploy/<%= visuals.timestamp %>'
                     }
                 ]
@@ -215,7 +215,7 @@ module.exports = function(grunt) {
     })
 
     grunt.registerTask('harness', ['copy:harness', 'template:harness', 'sass:harness', 'symlink:fonts'])
-    grunt.registerTask('interactive', ['shell:interactive', 'template:bootjs', 'sass:interactive', 'copy:assets'])
+    grunt.registerTask('interactive', ['shell', 'template:bootjs', 'sass:interactive', 'copy:assets'])
     grunt.registerTask('default', ['clean', 'harness', 'interactive', 'connect', 'watch']);
     grunt.registerTask('build', ['clean', 'interactive']);
     grunt.registerTask('deploy', ['loadDeployConfig', 'prompt:visuals', 'build', 'copy:deploy', 'aws_s3', 'boot_url']);

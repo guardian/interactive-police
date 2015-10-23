@@ -5,18 +5,20 @@ import madlib from './lib/madlib'
 import sendEvent from './lib/event'
 import geocode from './lib/geocode'
 
-import mainHTML from './text/main.html!text'
+import regionHTML from './text/region.html!text'
 import statsHTML from './text/stats.html!text'
 import statsRaw from './data/stats.tsv!text'
 
+var regionTemplateFn = doT.template(regionHTML);
 var statsTemplateFn = doT.template(statsHTML);
 
 var stats = statsRaw.split('\n').map(function (stat) {
-    var [force, id, ...numbers] = stat.split('\t');
+    var [force, region, id, ...numbers] = stat.split('\t');
     var [population, current, applications, appointments] = numbers.map(n => parseFloat(n));
     return {
         force,
         id,
+        region,
         population,
         current,
         applications,
@@ -26,70 +28,81 @@ var stats = statsRaw.split('\n').map(function (stat) {
 
 var maxPopulation = Math.max.apply(null, stats.map(s => s.population));
 
-var overall = stats.reduce(function (a, b) {
+var overall = stats.reduce((a, b) => {
     return {
         'force': 'Overall',
         'id': 'overall',
         'population': a.population + b.population,
         'current': a.current + b.current,
-        'applications': a.applications + b.applications,
+        'applications': a.applications + (b.applications || 0),
         'appointments': a.appointments + (b.appointments || 0)
     };
 });
 
 overall.population /= stats.length;
 overall.current /= stats.length;
+overall.applications /= stats.filter(s => !isNaN(s.applications)).length;
+overall.appointments /= stats.filter(s => !isNaN(s.appointments)).length;
 
 stats.push(overall);
-
-var forces = stats.map(s => s.force);
-
-var el = document.querySelector('#interactive');
-el.innerHTML = mainHTML;
-
-var statsEl = el.querySelector('.js-stats');
-var userLocationEl = el.querySelector('.js-gps');
 
 function locateForce(lat, lng) {
     reqwest({
         'url': `https://data.police.uk/api/locate-neighbourhood?q=${lat},${lng}`,
         'type': 'json',
         'crossOrigin': true,
-        'success': resp => changeForce(resp.force)
+        'success': resp => sendEvent('show-force', {'forceId': resp.force})
     });
 }
 
-function changeForce(forceId) {
-    var forceStats = stats.find(s => s.id === forceId);
-    statsEl.innerHTML = statsTemplateFn({'stats': forceStats, 'max': maxPopulation});
-}
+window.embed = function (el) {
+    var statsEl = el.querySelector('.js-stats');
+    var userLocationEl = el.querySelector('.js-gps');
 
-madlib(el.querySelector('.js-postcode'), loc => {
-    geocode(loc, (err, resp) => {
-        if (!err) {
-            locateForce(resp.features[0].center[1], resp.features[0].center[0]);
-        }
+    window.addEventListener('show-force', evt => {
+        var forceStats = stats.find(s => s.id === evt.detail.forceId);
+        statsEl.innerHTML = statsTemplateFn({'stats': forceStats, 'max': maxPopulation});
     });
-});
 
-if ('geolocation' in navigator) {
-    userLocationEl.style.display = 'block';
-    userLocationEl.addEventListener('click', () => {
-        userLocationEl.removeAttribute('data-has-error');
-        userLocationEl.setAttribute('data-is-loading', '');
-
-        navigator.geolocation.getCurrentPosition(function (position) {
-            locateForce(position.coords.latitude, position.coords.longitude);
-            userLocationEl.removeAttribute('data-is-loading');
-        }, function (err) {
-            console.log(err);
-            userLocationEl.removeAttribute('data-is-loading');
-            userLocationEl.addAttribute('data-has-error', '');
+    madlib(el.querySelector('.js-postcode'), loc => {
+        geocode(loc, (err, resp) => {
+            if (!err) {
+                locateForce(resp.features[0].center[1], resp.features[0].center[0]);
+            }
         });
-
-        userLocationEl.blur();
     });
-}
 
-iframeMessenger.enableAutoResize();
-changeForce('overall');
+    if ('geolocation' in navigator) {
+        userLocationEl.style.display = 'block';
+        userLocationEl.addEventListener('click', () => {
+            userLocationEl.removeAttribute('data-has-error');
+            userLocationEl.setAttribute('data-is-loading', '');
+
+            navigator.geolocation.getCurrentPosition(function (position) {
+                locateForce(position.coords.latitude, position.coords.longitude);
+                userLocationEl.removeAttribute('data-is-loading');
+            }, function (err) {
+                console.log(err);
+                userLocationEl.removeAttribute('data-is-loading');
+                userLocationEl.addAttribute('data-has-error', '');
+            });
+
+            userLocationEl.blur();
+        });
+    }
+
+    iframeMessenger.enableAutoResize();
+    sendEvent('show-force', {'forceId': 'overall'});
+};
+
+window.main = function (el) {
+    var regions = ['East Midlands', 'East of England', 'London', 'South West', 'Wales', 'West Midlands',
+        'Yorkshire & the Humber'];
+
+    el.querySelector('.js-regions').innerHTML = regions.map(region => {
+        var regionForceStats = stats.filter(s => s.region === region);
+        var forceHTMLs = regionForceStats.map(forceStats => statsTemplateFn({'stats': forceStats, 'max': maxPopulation}));
+
+        return regionTemplateFn({region, forceHTMLs});
+    }).join('');
+};

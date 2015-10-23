@@ -1,27 +1,27 @@
-<h2>{{=it.stats.force}}</h2>
+<h3>{{=it.stats.force}}</h3>
 <dl>
-    <dt class="stat-name">Population</dt>
-    <dd class="stat-value">
-        <div class="bar">
-            <div class="bar__part" style="width: {{=it.stats.population / it.max * 100}}%">
-                {{=(it.stats.population * 100).toFixed(2)}}%
-            </div>
+    <dt>Population</dt>
+    <dd>
+        <div class="bar" style="width: {{=it.stats.population / it.max * 100}}%">
+            {{=(it.stats.population * 100).toFixed(2)}}%
         </div>
     </dd>
-    <dt class="stat-name">Police force</dt>
-    <dd class="stat-value">
-        <div class="bar">
-            <div class="bar__part" style="width: {{=it.stats.current / it.max * 100}}%">
-                {{=(it.stats.current * 100).toFixed(2)}}%
-            </div>
+    <dt>Applications</dt>
+    <dd>
+        <div class="bar" style="width: {{=it.stats.applications / it.max * 100}}%">
+            {{=(it.stats.applications * 100).toFixed(2)}}%
         </div>
     </dd>
-    <dt class="stat-name">Applications</dt>
-    <dd class="stat-value">
-        {{=Math.floor(it.stats.applications)}}
+    <dt>Appointments</dt>
+    <dd>
+        <div class="bar" style="width: {{=it.stats.appointments / it.max * 100}}%">
+            {{=(it.stats.appointments * 100).toFixed(2)}}%
+        </div>
     </dd>
-    <dt class="stat-name">Appointments</dt>
-    <dd class="stat-value">
-        {{=Math.floor(it.stats.appointments)}}
+    <dt>Police force</dt>
+    <dd>
+        <div class="bar" style="width: {{=it.stats.current / it.max * 100}}%">
+            {{=(it.stats.current * 100).toFixed(2)}}%
+        </div>
     </dd>
 </dl>
