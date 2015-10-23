@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 
         shell: {
             interactive: {
-                command: './node_modules/.bin/jspm bundle-sfx <%= visuals.jspmFlags %> src/js/main build/main.js --format amd',
+                command: './node_modules/.bin/jspm bundle-sfx <%= visuals.jspmFlags %> src/js/main build/main.js',
                 options: {
                     execOptions: {
                         cwd: '.'
@@ -81,6 +81,7 @@ module.exports = function(grunt) {
             harness: {
                 files: [
                     {expand: true, cwd: 'harness/', src: ['curl.js', 'index.html'], dest: 'build'},
+                    {src: 'src/embed.html', dest: 'build/embed.html'}
                 ]
             },
             assets: {
@@ -90,15 +91,10 @@ module.exports = function(grunt) {
             },
             deploy: {
                 files: [
-                    { // BOOT
+                    {
                         expand: true, cwd: 'build/',
-                        src: ['boot.js'],
+                        src: ['boot.js', 'main.css', 'main.js', 'embed.html', 'assets/**/*'],
                         dest: 'deploy/<%= visuals.timestamp %>'
-                    },
-                    { // ASSETS
-                        expand: true, cwd: 'build/',
-                        src: ['main.js', 'main.css', 'main.js.map', 'main.css.map', 'assets/**/*'],
-                        dest: 'deploy/<%= visuals.timestamp %>/<%= visuals.timestamp %>'
                     }
                 ]
             }

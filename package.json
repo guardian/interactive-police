@@ -22,7 +22,6 @@
   "author": "",
   "license": "ISC",
   "jspm": {
-    "directories": {},
     "configFile": "src/js/config.js",
     "dependencies": {
       "guardian/iframe-messenger": "github:guardian/iframe-messenger@master",
