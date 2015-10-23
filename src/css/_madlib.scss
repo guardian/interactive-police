@@ -1,0 +1,150 @@
+.madlib {
+    border: 1px solid #bdbdbd;
+    border-radius: 100px;
+    background: white;
+    margin-bottom: 12px;
+    padding: 5px 0 6px;
+    max-width: 200px;
+}
+
+.madlib__input {
+    overflow: hidden;
+}
+
+.madlib__input__text {
+    @include fs-headline(2);
+    background: none;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 4px 15px 3px;
+}
+
+.madlib__input__btn {
+    float: right;
+    border: 0;
+    border-radius: 100px;
+    outline: 0;
+    padding: 0;
+    font-size: 0;
+    margin: -1px 3px 0 0;
+
+    transition: 0.1s color ease-out, 0.1s background ease-out;
+    color: #333;
+    background: #dcdcdc;
+    &:hover {
+        background: #bdbdbd;
+    }
+
+    .icon-submit {
+        display: none;
+    }
+
+    &[data-focus] {
+        color: white;
+        background: #005689;
+        &:hover {
+            background: #00456E
+        }
+        .icon-submit {
+            display: block;
+        }
+        .icon-clear {
+            display: none;
+        }
+    }
+}
+
+.madlib__note {
+    @include fs-textSans(2);
+    color: #bdbdbd;
+    width: 80px;
+    float: right;
+    text-align: right;
+    margin: 9px 0 0 0;
+}
+
+.madlib-options {
+    @include fs-textSans(1);
+    line-height: 18px;
+    color: #767676;
+    &::before {
+        content: "Or try: ";
+        margin-right: 6px;
+    }
+}
+
+.button {
+    @include fs-textSans(1);
+    line-height: 19px;
+    font-weight: bold;
+    border-radius: 100px;
+    background: 0;
+    border: 0;
+    outline: 0;
+    margin-right: 6px;
+
+    transition: 0.1s background-color ease-out;
+
+    color: #333;
+    background-color: #dcdcdc;
+    &:hover {
+        background-color: #bdbdbd;
+    }
+
+    &[data-selected] {
+        color: white;
+        background-color: #005689;
+        &:hover {
+            background-color: #00456e;
+        }
+    }
+}
+
+@-webkit-keyframes loading {
+    0%, 100% { background: #dcdcdc; }
+    50% { background: #aad8f1; }
+}
+@keyframes loading {
+    0%, 100% { background: #dcdcdc; }
+    50% { background: #aad8f1; }
+}
+
+@-webkit-keyframes error {
+    0%, 100% { background: #dcdcdc; color: #333; }
+    50% { background: #d61d00; color: white; }
+}
+@keyframes error {
+    0%, 100% { background: #dcdcdc; color: #333; }
+    50% { background: #d61d00; color: white; }
+}
+
+.madlib__location {
+    float: left;
+    border: 0;
+    border-radius: 100px;
+    outline: 0;
+    padding: 0;
+    font-size: 0;
+    margin: -2px -5px 0 3px;
+
+    display: none;
+
+    transition: 0.1s background ease-out;
+    color: #333;
+    background: #dcdcdc;
+    &:hover {
+        background: #bdbdbd;
+    }
+
+    &[data-is-loading] {
+        -webkit-animation: loading 0.5s infinite;
+        animation: loading 0.5s infinite;
+    }
+
+    &[data-has-error] {
+        -webkit-animation: error 0.5s 1;
+        animation: error 0.5s 1;
+    }
+}
