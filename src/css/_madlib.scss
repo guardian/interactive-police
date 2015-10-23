@@ -3,8 +3,9 @@
     border-radius: 100px;
     background: white;
     margin-bottom: 12px;
-    padding: 5px 0 6px;
+    padding: 5px 0 3px;
     max-width: 200px;
+    overflow: hidden;
 }
 
 .madlib__input {
@@ -28,7 +29,7 @@
     outline: 0;
     padding: 0;
     font-size: 0;
-    margin: -1px 3px 0 0;
+    margin: -2px 3px 0 0;
 
     transition: 0.1s color ease-out, 0.1s background ease-out;
     color: #333;

@@ -24,6 +24,8 @@ var stats = statsRaw.split('\n').map(function (stat) {
     };
 }).filter(s => s.force);
 
+var maxPopulation = Math.max.apply(null, stats.map(s => s.population));
+
 var overall = stats.reduce(function (a, b) {
     return {
         'force': 'Overall',
@@ -59,7 +61,7 @@ function locateForce(lat, lng) {
 
 function changeForce(forceId) {
     var forceStats = stats.find(s => s.id === forceId);
-    statsEl.innerHTML = statsTemplateFn({'stats': forceStats});
+    statsEl.innerHTML = statsTemplateFn({'stats': forceStats, 'max': maxPopulation});
 }
 
 madlib(el.querySelector('.js-postcode'), loc => {
