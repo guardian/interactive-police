@@ -31,26 +31,32 @@ ul {
     padding: 0;
 }
 
-h2,
-h3 {
+h2 {
+    @include fs-header(3);
     margin: 0 0 12px 0;
 }
 
-h2 {
-    @include fs-header(3);
-}
-
-h3 {
-    @include fs-bodyHeading(2);
-}
-
 // MAIN ONLY
+.forces {
+}
+
 .regions__region {
     clear: left;
     overflow: hidden;
+
+    border-top: 1px solid #dcdcdc;
+    margin-top: 10px;
+    padding-top: 10px;
+    &:first-child {
+        border-top: 0;
+        margin-top: 0;
+        padding-top: 0;
+    }
 }
 
-.main-title {
+.region-title {
+    position: relative;
+    max-width: 940px;
     @include mq(leftCol) {
         width: 160px;
         float: left;
@@ -60,9 +66,28 @@ h3 {
     }
 }
 
-.main-col {
-    overflow: hidden;
+.region-title__img {
+    width: 120px;
+    float: right;
+    @include mq(leftCol) {
+        width: 150px;
+        margin-top: 10px;
+        position: absolute;
+        top: 100%;
+    }
+    @include mq(wide) {
+        margin-left: 40px;
+    }
+}
+
+.region-col {
     max-width: 940px;
+    @include mq(leftCol) {
+        overflow: hidden;
+    }
+}
+
+.region-copy {
 }
 
 // EMBED ONLY

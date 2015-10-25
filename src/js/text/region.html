@@ -1,7 +1,17 @@
 <li class="regions__region">
-    <h2 class="main-title">{{=it.region}}</h2>
-    <div class="main-col">
-        <p>Some copy here</p>
+    <h2 class="region-title">
+        <img src="assets/imgs/regions/regions_{{=it.region.code}}.svg" class="region-title__img" />
+        {{=it.region.name}}
+    </h2>
+    <div class="region-col">
+        <p class="region-copy">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed
+            volutpat elit, non ultricies sapien. Aliquam quis neque sem. Nulla nec
+            dui risus. Etiam a metus ut libero aliquam posuere. In nulla turpis,
+            tincidunt id nunc facilisis, vestibulum mattis nunc. Nullam imperdiet
+            interdum leo, eu faucibus dui pharetra ut. Cras mollis accumsan ligula,
+            sollicitudin tincidunt purus ornare nec.
+        </p>
         <ul class="forces">
             {{~it.forceHTMLs :forceHTML:i}}
                 <li class="forces__force">{{=forceHTML}}</li>

@@ -1,29 +1,81 @@
-$bar-height: 25px;
 $d-sep: 4px;
 
-dl {
-    @include fs-textSans(3);
-    line-height: $bar-height;
-    margin: -$d-sep 0 12px;
-}
-
-dt {
-    float: left;
-    width: 90px;
+.stat-force {
+    @include fs-bodyHeading(3);
     clear: left;
-    margin-right: 20px;
+    color: #767676;
+    margin: 24px 0 6px;
 }
 
-dd {
-    display: block;
-    overflow: hidden;
-    margin: 0 0 $d-sep 0;
+.stats {
+    @include fs-textSans(3);
 }
 
-.bar {
-    height: $bar-height;
-    margin-left: 60px;
-    text-indent: -60px;
-    background-image: url(assets/imgs/officer.svg);
+.stats__row.stats__row--border {
+    border-bottom: 1px dotted #dcdcdc;
+}
+
+.stats__row__desc {
+    padding-top: 8px;
+}
+.stats__row__value {
+    padding-bottom: 8px;
+}
+
+@include mq(tablet) {
+    .stats {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .stats__row {
+        display: table-row;
+
+    }
+
+    .stats__row__desc,
+    .stats__row__value {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 6px 0;
+    }
+
+    .stats__row__desc {
+        width: 190px;
+        padding-right: 20px;
+    }
+}
+
+.stat-bar,
+.stat-bar__part {
+    height: 28px;
     background-size: contain;
+}
+
+.stat-bar {
+    background-color: #f1f1f1;
+    @include mq(tablet) {
+        background-color: transparent;
+        background-image: url(assets/imgs/officer-bg.svg);
+    }
+}
+
+.stat-bar__part {
+    background-color: #b72266;
+    @include mq(tablet) {
+        background-color: transparent;
+        background-image: url(assets/imgs/officer.svg);
+    }
+}
+
+.stat-p {
+    color: #b72266;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.stat-note {
+    @include fs-textSans(1);
+    color: #bfbfbf;
 }

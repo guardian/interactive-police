@@ -7,6 +7,8 @@ import geocode from './lib/geocode'
 
 import regionHTML from './text/region.html!text'
 import statsHTML from './text/stats.html!text'
+
+import regions from './data/regions.json!json'
 import statsRaw from './data/stats.tsv!text'
 
 var regionTemplateFn = doT.template(regionHTML);
@@ -96,11 +98,8 @@ window.embed = function (el) {
 };
 
 window.main = function (el) {
-    var regions = ['East Midlands', 'East of England', 'London', 'South East', 'South West', 'Wales', 'West Midlands',
-        'Yorkshire & the Humber', 'North East', 'North West'];
-
     el.querySelector('.js-regions').innerHTML = regions.map(region => {
-        var regionForceStats = stats.filter(s => s.region === region);
+        var regionForceStats = stats.filter(s => s.region === region.name);
         var forceHTMLs = regionForceStats.map(forceStats => statsTemplateFn({'stats': forceStats, 'max': maxPopulation}));
 
         return regionTemplateFn({region, forceHTMLs});

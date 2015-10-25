@@ -1,20 +1,46 @@
-{{##def.stat:params:
-    <dt>{{=params.name}}</dt>
-    <dd>
-        {{?isNaN(params.percentage)}}
-            No data
-        {{??}}
-            <div class="bar" style="width: {{=params.percentage / it.max * 100}}%">
-                {{=(params.percentage * 100).toFixed(2)}}%
-            </div>
-        {{?}}
-    </dd>
+{{##def.bar:percentage:
+    {{?isNaN(percentage)}}
+        No data
+    {{??}}
+        <div class="stat-bar" style="width: {{=it.stats.population / it.max * 100}}%">
+            <div class="stat-bar__part" style="width: {{=percentage / it.stats.population * 100}}%"></div>
+        </div>
+    {{?}}
 #}}
 
-<h3>{{=it.stats.force}}</h3>
-<dl>
-    {{#def.stat:{name:"Population", percentage:it.stats.population} }}
-    {{#def.stat:{name:"Applications", percentage:it.stats.applications} }}
-    {{#def.stat:{name:"Appointments", percentage:it.stats.appointments} }}
-    {{#def.stat:{name:"Police force", percentage:it.stats.current} }}
-</dl>
+{{##def.p:percentage:
+    {{?isNaN(percentage)}}
+        <span class="stat-p">?</span>
+    {{??}}
+        <span class="stat-p">{{=(percentage * 100).toFixed(1)}}%</span>
+    {{?}}
+#}}
+
+<h3 class="stat-force">{{=it.stats.force}}</h3>
+<div class="stats">
+    <div class="stats__row stats__row--border">
+        <div class="stats__row__desc">
+            The <b>local population</b> is {{#def.p:it.stats.population}} BME
+        </div>
+        <div class="stats__row__value">{{#def.bar:it.stats.population}}</div>
+    </div>
+    <div class="stats__row">
+        <div class="stats__row__desc">
+            However, they make up only {{#def.p:it.stats.applications}} of <b>applicants</b>&hellip;
+        </div>
+        <div class="stats__row__value">{{#def.bar:it.stats.applications}}</div>
+    </div>
+    <div class="stats__row stats__row--border">
+        <div class="stats__row__desc">
+            {{#def.p:it.stats.appointments}} of <b>appointments</b>
+        </div>
+        <div class="stats__row__value">{{#def.bar:it.stats.appointments}}</div>
+    </div>
+    <div class="stats__row">
+        <div class="stats__row__desc">
+            and {{#def.p:it.stats.current}} of the <b>police force</b>
+        </div>
+        <div class="stats__row__value">{{#def.bar:it.stats.current}}</div>
+    </div>
+</div>
+<p class="stat-note">Data from xxxx</p>

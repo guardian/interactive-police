@@ -1,0 +1,42 @@
+[
+    {
+        'name': 'East Midlands',
+        'code': 'EM'
+    },
+    {
+        'name': 'East of England',
+        'code': 'EE'
+    },
+    {
+        'name': 'London',
+        'code': 'LN'
+    },
+    {
+        'name': 'South East',
+        'code': 'SE'
+    },
+    {
+        'name': 'South West',
+        'code': 'SW'
+    },
+    {
+        'name': 'Wales',
+        'code': 'WA'
+    },
+    {
+        'name': 'West Midlands',
+        'code': 'WM'
+    },
+    {
+        'name': 'Yorkshire & the Humber',
+        'code': 'YH'
+    },
+    {
+        'name': 'North East',
+        'code': 'NE'
+    },
+    {
+        'name': 'North West',
+        'code': 'NW'
+    }
+]
