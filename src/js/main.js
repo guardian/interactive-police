@@ -16,7 +16,8 @@ var statsTemplateFn = doT.template(statsHTML);
 
 var stats = statsRaw.split('\n').map(function (stat) {
     var [force, region, id, ...numbers] = stat.split('\t');
-    var [population, current, applications, appointments] = numbers.map(n => parseFloat(n));
+    var [population, current, applications, appointments, ...years] = numbers.map(n => parseFloat(n));
+
     return {
         force,
         id,
