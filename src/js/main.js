@@ -33,44 +33,26 @@ function yearSpan(years) {
 }
 
 var stats = statsRaw.split('\n').map(function (stat) {
-    var [force, region, id, ...numbers] = stat.split('\t');
-    var [population, current, applications, appointments, ...years] = numbers.map(n => parseFloat(n));
+    var [name, region, id, ...numbers] = stat.split('\t');
+    var [population, force, forceNS, applications, applicationsNS, appointments, appointmentsNS, ...years] = numbers.map(n => parseFloat(n));
 
     var applicationYears = yearSpan(years.slice(0, years.length / 2));
     var appointmentYears = yearSpan(years.slice(years.length / 2));
 
     return {
-        force,
+        name,
         id,
         region,
-        population,
-        current,
-        applications,
-        appointments,
+        'population': {'bme': population},
+        'force': {'bme': force, 'ns': forceNS},
+        'applications': isNaN(applications) ? null : {'bme': applications, 'ns': applicationsNS},
+        'appointments': isNaN(appointments) ? null : {'bme': appointments, 'ns': appointmentsNS},
         applicationYears,
         appointmentYears
     };
-}).filter(s => s.force);
+}).filter(s => s.name);
 
-var maxPopulation = Math.max.apply(null, stats.map(s => s.population));
-
-var overall = stats.reduce((a, b) => {
-    return {
-        'force': 'Overall',
-        'id': 'overall',
-        'population': a.population + b.population,
-        'current': a.current + b.current,
-        'applications': a.applications + (b.applications || 0),
-        'appointments': a.appointments + (b.appointments || 0)
-    };
-});
-
-overall.population /= stats.length;
-overall.current /= stats.length;
-overall.applications /= stats.filter(s => !isNaN(s.applications)).length;
-overall.appointments /= stats.filter(s => !isNaN(s.appointments)).length;
-
-stats.push(overall);
+var maxPopulation = Math.max.apply(null, stats.map(s => s.population.bme));
 
 function locateForce(lat, lng) {
     reqwest({
@@ -117,7 +99,7 @@ window.embed = function (el) {
         });
     }
 
-    sendEvent('show-force', {'forceId': 'overall'});
+    sendEvent('show-force', {'forceId': 'metropolitan'});
 };
 
 window.main = function (el) {

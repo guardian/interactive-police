@@ -69,6 +69,14 @@ $d-sep: 4px;
     }
 }
 
+.stat-ns {
+    margin-top: -28px;
+    text-align: right;
+    color: #999;
+    white-space: nowrap;
+    line-height: 28px;
+}
+
 .stat-p {
     @include fs-header(2);
     font-weight: 600;
@@ -81,5 +89,5 @@ $d-sep: 4px;
 }
 
 .no-data {
-    color: #767676;
+    color: #999;
 }

@@ -1,16 +1,17 @@
 {{##def.bar:percentage:
-    {{?!isNaN(percentage)}}
-        <div class="stat-bar" style="width: {{=it.stats.population / it.max * 100}}%">
-            <div class="stat-bar__part" style="width: {{=percentage / it.stats.population * 100}}%"></div>
+    {{?percentage}}
+        <div class="stat-bar" style="width: {{=it.stats.population.bme / it.max * 100}}%">
+            <div class="stat-bar__part" style="width: {{=percentage.bme / it.stats.population.bme * 100}}%"></div>
         </div>
+                {{?percentage.ns > 0}}<div class="stat-ns">{{=(percentage.ns * 100).toFixed(1)}}% not stated</div>{{?}}
     {{?}}
 #}}
 
 {{##def.p:percentage:
-    <span class="stat-p">{{=(percentage * 100).toFixed(1)}}%</span>
+    <span class="stat-p">{{=(percentage.bme * 100).toFixed(1)}}%</span>
 #}}
 
-<h3 class="stat-force">{{=it.stats.force}}</h3>
+<h3 class="stat-force">{{=it.stats.name}}</h3>
 <div class="stats">
     <div class="stats__row stats__row--border">
         <div class="stats__row__desc">
@@ -18,7 +19,7 @@
         </div>
         <div class="stats__row__value">{{#def.bar:it.stats.population}}</div>
     </div>
-    {{?isNaN(it.stats.applications) && isNaN(it.stats.appointments)}}
+    {{?!it.stats.applications && !it.stats.appointments}}
         <div class="stats__row stats__row--border">
             <div class="stats__row__desc no-data">
                 No data for applications or appointments
@@ -28,25 +29,25 @@
     {{??}}
         <div class="stats__row">
             <div class="stats__row__desc">
-                {{?isNaN(it.stats.applications)}}
-                    <span class="no-data">No data for applications</span>
-                {{??}}
-                    However, they make up {{?it.stats.applications < it.stats.population}}only{{?}}
+                {{?it.stats.applications}}
+                    However, they make up {{?it.stats.applications.bme < it.stats.population.bme}}only{{?}}
                     {{#def.p:it.stats.applications}} of <b>applicants</b>&hellip;
+                {{??}}
+                    <span class="no-data">No data for applications</span>
                 {{?}}
             </div>
             <div class="stats__row__value">{{#def.bar:it.stats.applications}}</div>
         </div>
         <div class="stats__row stats__row--border">
             <div class="stats__row__desc">
-                {{?isNaN(it.stats.appointments)}}
+                {{?!it.stats.appointments}}
                     <span class="no-data">No data for appointments</span>
-                {{??isNaN(it.stats.applications)}}
-                    However, they make up {{?it.stats.appointments < it.stats.population}}only{{?}}
-                {{??it.stats.applications > it.stats.population && it.stats.appointments < it.stats.population}}
+                {{??!it.stats.applications}}
+                    However, they make up {{?it.stats.appointments.bme < it.stats.population.bme}}only{{?}}
+                {{??it.stats.applications.bme > it.stats.population.bme && it.stats.appointments.bme < it.stats.population.bme}}
                     only
                 {{?}}
-                {{?!isNaN(it.stats.appointments)}}
+                {{?it.stats.appointments}}
                     {{#def.p:it.stats.appointments}} of <b>appointments</b>
                 {{?}}
             </div>
@@ -55,14 +56,14 @@
     {{?}}
     <div class="stats__row">
         <div class="stats__row__desc">
-            {{?isNaN(it.stats.applications) && isNaN(it.stats.appointments)}}
-                However, they make up {{?it.stats.current < it.stats.population}}only{{?}}
+            {{?!it.stats.applications && !it.stats.appointments}}
+                However, they make up {{?it.stats.force.bme < it.stats.population.bme}}only{{?}}
             {{??}}
                 and
             {{?}}
-            {{#def.p:it.stats.current}} of the <b>police force</b>
+            {{#def.p:it.stats.force}} of the <b>police force</b>
         </div>
-        <div class="stats__row__value">{{#def.bar:it.stats.current}}</div>
+        <div class="stats__row__value">{{#def.bar:it.stats.force}}</div>
     </div>
 </div>
 <p class="stat-note">
