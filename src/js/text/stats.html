@@ -7,11 +7,7 @@
 #}}
 
 {{##def.p:percentage:
-    {{?isNaN(percentage)}}
-        <span class="stat-p">?</span>
-    {{??}}
-        <span class="stat-p">{{=(percentage * 100).toFixed(1)}}%</span>
-    {{?}}
+    <span class="stat-p">{{=(percentage * 100).toFixed(1)}}%</span>
 #}}
 
 <h3 class="stat-force">{{=it.stats.force}}</h3>
@@ -22,21 +18,46 @@
         </div>
         <div class="stats__row__value">{{#def.bar:it.stats.population}}</div>
     </div>
+    {{?isNaN(it.stats.applications) && isNaN(it.stats.appointments)}}
+        <div class="stats__row stats__row--border">
+            <div class="stats__row__desc no-data">
+                No data for applications or appointments
+            </div>
+            <div class="stats__row__value"></div>
+        </div>
+    {{??}}
+        <div class="stats__row">
+            <div class="stats__row__desc">
+                {{?isNaN(it.stats.applications)}}
+                    <span class="no-data">No data for applications</span>
+                {{??}}
+                    However, they make up only {{#def.p:it.stats.applications}} of <b>applicants</b>&hellip;
+                {{?}}
+            </div>
+            <div class="stats__row__value">{{#def.bar:it.stats.applications}}</div>
+        </div>
+        <div class="stats__row stats__row--border">
+            <div class="stats__row__desc">
+                {{?isNaN(it.stats.appointments)}}
+                    <span class="no-data">No data for applicants</span>
+                {{??isNaN(it.stats.applications)}}
+                    However, they make up only
+                {{?}}
+                {{?!isNaN(it.stats.appointments)}}
+                    {{#def.p:it.stats.appointments}} of <b>appointments</b>
+                {{?}}
+            </div>
+            <div class="stats__row__value">{{#def.bar:it.stats.appointments}}</div>
+        </div>
+    {{?}}
     <div class="stats__row">
         <div class="stats__row__desc">
-            However, they make up only {{#def.p:it.stats.applications}} of <b>applicants</b>&hellip;
-        </div>
-        <div class="stats__row__value">{{#def.bar:it.stats.applications}}</div>
-    </div>
-    <div class="stats__row stats__row--border">
-        <div class="stats__row__desc">
-            {{#def.p:it.stats.appointments}} of <b>appointments</b>
-        </div>
-        <div class="stats__row__value">{{#def.bar:it.stats.appointments}}</div>
-    </div>
-    <div class="stats__row">
-        <div class="stats__row__desc">
-            and {{#def.p:it.stats.current}} of the <b>police force</b>
+            {{?isNaN(it.stats.applications) && isNaN(it.stats.appointments)}}
+                However, they make up only
+            {{??}}
+                and
+            {{?}}
+            {{#def.p:it.stats.current}} of the <b>police force</b>
         </div>
         <div class="stats__row__value">{{#def.bar:it.stats.current}}</div>
     </div>

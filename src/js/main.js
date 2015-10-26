@@ -29,8 +29,6 @@ function yearSpan(years) {
         }
     });
 
-    console.log(s, s.join(', '));
-
     return s.join(', ');
 }
 

@@ -79,3 +79,7 @@ $d-sep: 4px;
     @include fs-textSans(1);
     color: #bfbfbf;
 }
+
+.no-data {
+    color: #767676;
+}
