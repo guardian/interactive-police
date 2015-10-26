@@ -31,7 +31,8 @@
                 {{?isNaN(it.stats.applications)}}
                     <span class="no-data">No data for applications</span>
                 {{??}}
-                    However, they make up only {{#def.p:it.stats.applications}} of <b>applicants</b>&hellip;
+                    However, they make up {{?it.stats.applications < it.stats.population}}only{{?}}
+                    {{#def.p:it.stats.applications}} of <b>applicants</b>&hellip;
                 {{?}}
             </div>
             <div class="stats__row__value">{{#def.bar:it.stats.applications}}</div>
@@ -39,9 +40,11 @@
         <div class="stats__row stats__row--border">
             <div class="stats__row__desc">
                 {{?isNaN(it.stats.appointments)}}
-                    <span class="no-data">No data for applicants</span>
+                    <span class="no-data">No data for appointments</span>
                 {{??isNaN(it.stats.applications)}}
-                    However, they make up only
+                    However, they make up {{?it.stats.appointments < it.stats.population}}only{{?}}
+                {{??it.stats.applications > it.stats.population && it.stats.appointments < it.stats.population}}
+                    only
                 {{?}}
                 {{?!isNaN(it.stats.appointments)}}
                     {{#def.p:it.stats.appointments}} of <b>appointments</b>
@@ -53,7 +56,7 @@
     <div class="stats__row">
         <div class="stats__row__desc">
             {{?isNaN(it.stats.applications) && isNaN(it.stats.appointments)}}
-                However, they make up only
+                However, they make up {{?it.stats.current < it.stats.population}}only{{?}}
             {{??}}
                 and
             {{?}}
