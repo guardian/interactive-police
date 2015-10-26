@@ -7,7 +7,7 @@
     {
         'name': 'East of England',
         'code': 'EE',
-        'copy': 'Some of the forces did relatively well - Norfolk Constabulary, in particular appointed roughly a proportionate number of BAME officers, when compared with its local population. Bedfordshire police’s record on appointments, however, was one of the worst in the country.'
+        'copy': 'Some of the forces did relatively well &ndash; Norfolk Constabulary, in particular appointed roughly a proportionate number of BAME officers, when compared with its local population. Bedfordshire police’s record on appointments, however, was one of the worst in the country.'
     },
     {
         'name': 'South East',
@@ -27,7 +27,7 @@
     {
         'name': 'East Midlands',
         'code': 'EM',
-        'copy': 'One of the regions in which the forces consistently reported disproportionately low numbers. Particularly striking was the fact that only about 5% of the officers Nottinghamshire Police appointed between 2005 and 2014 were from BAME backgrounds, when more than 11% of the local population were.'
+        'copy': 'One of the regions in which the forces consistently reported disproportionately low numbers. Particularly striking was the fact that only about 5% of the officers Nottinghamshire Police appointed between 2005 and 2014 (excluding 2011) were from BAME backgrounds, when more than 11% of the local population were.'
     },
     {
         'name': 'Yorkshire & the Humber',
