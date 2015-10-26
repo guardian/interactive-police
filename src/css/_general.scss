@@ -95,7 +95,9 @@ h2 {
 
 // EMBED ONLY
 .locate {
-    float: left;
-    margin: 0 10px 0 0;
+    @include fs-header(3);
+    color: #767676;
     line-height: 38px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #dcdcdc;
 }

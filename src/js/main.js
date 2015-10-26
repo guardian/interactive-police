@@ -73,6 +73,9 @@ window.embed = function (el) {
     });
 
     madlib(el.querySelector('.js-postcode'), loc => {
+        if (loc.slice(0, 2).toUpperCase() === 'BT') {
+            sendEvent('show-force', {'forceId': 'northern-ireland'});
+        }
         geocode(loc, (err, resp) => {
             if (!err) {
                 locateForce(resp.features[0].center[1], resp.features[0].center[0]);
@@ -98,8 +101,6 @@ window.embed = function (el) {
             userLocationEl.blur();
         });
     }
-
-    sendEvent('show-force', {'forceId': 'metropolitan'});
 };
 
 window.main = function (el) {

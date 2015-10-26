@@ -1,11 +1,12 @@
 .madlib {
+    display: inline-block;
+    vertical-align: middle;
     border: 1px solid #bdbdbd;
     border-radius: 100px;
     background: white;
-    margin-bottom: 12px;
-    padding: 5px 0 3px;
     max-width: 200px;
     overflow: hidden;
+    margin: 0 3px;
 }
 
 .madlib__input {
@@ -13,7 +14,7 @@
 }
 
 .madlib__input__text {
-    @include fs-headline(2);
+    @include fs-header(3);
     background: none;
     width: 100%;
     border: 0;
@@ -29,7 +30,7 @@
     outline: 0;
     padding: 0;
     font-size: 0;
-    margin: -2px 3px 0 0;
+    margin: 4px 3px 0 0;
 
     transition: 0.1s color ease-out, 0.1s background ease-out;
     color: #333;
@@ -128,7 +129,7 @@
     outline: 0;
     padding: 0;
     font-size: 0;
-    margin: -2px -5px 0 3px;
+    margin: 4px -5px 0 3px;
 
     display: none;
 
