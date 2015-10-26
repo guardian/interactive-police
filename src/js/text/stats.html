@@ -1,7 +1,5 @@
 {{##def.bar:percentage:
-    {{?isNaN(percentage)}}
-        No data
-    {{??}}
+    {{?!isNaN(percentage)}}
         <div class="stat-bar" style="width: {{=it.stats.population / it.max * 100}}%">
             <div class="stat-bar__part" style="width: {{=percentage / it.stats.population * 100}}%"></div>
         </div>

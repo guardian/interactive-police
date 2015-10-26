@@ -55,7 +55,7 @@ $d-sep: 4px;
 
 .stat-bar {
     background-color: #f1f1f1;
-    @include mq(tablet) {
+    @include mq(mobileLandscape) {
         background-color: transparent;
         background-image: url(assets/imgs/officer-bg.svg);
     }
@@ -63,7 +63,7 @@ $d-sep: 4px;
 
 .stat-bar__part {
     background-color: #b72266;
-    @include mq(tablet) {
+    @include mq(mobileLandscape) {
         background-color: transparent;
         background-image: url(assets/imgs/officer.svg);
     }
