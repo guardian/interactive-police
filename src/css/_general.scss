@@ -95,8 +95,8 @@ h2 {
 
 // EMBED ONLY
 .locate {
-    @include fs-header(3);
-    color: #767676;
+    @include fs-bodyHeading(3);
+    color: #bdbdbd;
     line-height: 38px;
     padding-bottom: 3px;
     border-bottom: 1px solid #dcdcdc;
