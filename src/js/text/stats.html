@@ -8,7 +8,9 @@
 #}}
 
 {{##def.p:percentage:
-    <span class="stat-p">{{=(percentage.bme * 100).toFixed(1)}}%</span>
+    <span class="stat-p">
+        {{?percentage.bme === 0}}0{{??}}{{=(percentage.bme * 100).toFixed(1)}}{{?}}%
+    </span>
 #}}
 
 <h3 class="stat-force">{{=it.stats.name}}</h3>
@@ -30,7 +32,11 @@
         <div class="stats__row">
             <div class="stats__row__desc">
                 {{?it.stats.applications}}
-                    However, they make up {{?it.stats.applications.bme < it.stats.population.bme}}only{{?}}
+                    {{?it.stats.applications.bme < it.stats.population.bme}}
+                        However, they make up only
+                    {{??}}
+                        They make up
+                    {{?}}
                     {{#def.p:it.stats.applications}} of <b>applicants</b>&hellip;
                 {{??}}
                     <span class="no-data">No data for applications</span>
@@ -43,7 +49,11 @@
                 {{?!it.stats.appointments}}
                     <span class="no-data">No data for appointments</span>
                 {{??!it.stats.applications}}
-                    However, they make up {{?it.stats.appointments.bme < it.stats.population.bme}}only{{?}}
+                    {{?it.stats.appointments.bme < it.stats.population.bme}}
+                        However, they make up {{?it.stats.appointments.bme > 0}}only{{?}}
+                    {{??}}
+                        They make up
+                    {{?}}
                 {{??it.stats.applications.bme > it.stats.population.bme && it.stats.appointments.bme < it.stats.population.bme}}
                     only
                 {{?}}
@@ -57,7 +67,11 @@
     <div class="stats__row stats__row--force">
         <div class="stats__row__desc">
             {{?!it.stats.applications && !it.stats.appointments}}
-                However, they make up {{?it.stats.force.bme < it.stats.population.bme}}only{{?}}
+                {{?it.stats.force.bme < it.stats.population.bme}}
+                    However, they make up only
+                {{??}}
+                    They make up
+                {{?}}
             {{??}}
                 and
             {{?}}
