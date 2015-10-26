@@ -6,20 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-// Link styles don't exist on the app
-a {
-    &,
-    &:hover,
-    &:active {
-        color: #005689;
-    }
-
-    text-decoration: none;
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
 p {
     margin: 0 0 8px 0;
     @include fs-bodyCopy(2);
@@ -100,4 +86,25 @@ h2 {
     line-height: 38px;
     padding-bottom: 3px;
     border-bottom: 1px solid #dcdcdc;
+}
+
+.see-all {
+    @include fs-textSans(2);
+    display: inline-block;
+    border-radius: 100px;
+    color: white;
+    line-height: 34px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #005689;
+    padding: 0 5px 0 14px;
+    &:hover {
+        background-color: #003656;
+    }
+
+    & > svg {
+        display: inline-block;
+        vertical-align: middle;
+    }
 }

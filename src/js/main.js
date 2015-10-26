@@ -73,6 +73,7 @@ window.embed = function (el) {
     });
 
     madlib(el.querySelector('.js-postcode'), loc => {
+
         if (loc.slice(0, 2).toUpperCase() === 'BT') {
             sendEvent('show-force', {'forceId': 'northern-ireland'});
         }
