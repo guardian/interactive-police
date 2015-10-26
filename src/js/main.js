@@ -18,6 +18,8 @@ var stats = statsRaw.split('\n').map(function (stat) {
     var [force, region, id, ...numbers] = stat.split('\t');
     var [population, current, applications, appointments, ...years] = numbers.map(n => parseFloat(n));
 
+    var appointmentYears = years.slice(0, years.length / 2);
+
     return {
         force,
         id,

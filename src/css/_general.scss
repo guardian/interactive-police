@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-color: white;
     color: #333;
+    overflow-x: hidden;
 }
 
 // Link styles don't exist on the app
@@ -69,6 +70,8 @@ h2 {
 .region-title__img {
     width: 120px;
     float: right;
+    margin: 0 0 10px 10px;
+
     @include mq(leftCol) {
         width: 150px;
         margin-top: 10px;
