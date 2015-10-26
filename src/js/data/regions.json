@@ -1,15 +1,11 @@
 [
     {
-        'name': 'East Midlands',
-        'code': 'EM'
+        'name': 'London',
+        'code': 'LN'
     },
     {
         'name': 'East of England',
         'code': 'EE'
-    },
-    {
-        'name': 'London',
-        'code': 'LN'
     },
     {
         'name': 'South East',
@@ -20,24 +16,28 @@
         'code': 'SW'
     },
     {
-        'name': 'Wales',
-        'code': 'WA'
-    },
-    {
         'name': 'West Midlands',
         'code': 'WM'
+    },
+    {
+        'name': 'East Midlands',
+        'code': 'EM'
     },
     {
         'name': 'Yorkshire & the Humber',
         'code': 'YH'
     },
     {
+        'name': 'North West',
+        'code': 'NW'
+    },
+    {
         'name': 'North East',
         'code': 'NE'
     },
     {
-        'name': 'North West',
-        'code': 'NW'
+        'name': 'Wales',
+        'code': 'WA'
     },
     {
         'name': 'Scotland',
