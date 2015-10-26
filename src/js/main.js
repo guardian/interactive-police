@@ -14,11 +14,32 @@ import statsRaw from './data/stats.tsv!text'
 var regionTemplateFn = doT.template(regionHTML);
 var statsTemplateFn = doT.template(statsHTML);
 
+function yearSpan(years) {
+    var s = [];
+    var startYear, endYear;
+    years.push(10000);
+    years.forEach(year => {
+        if (year - endYear === 1) {
+            endYear = year;
+        } else {
+            if (startYear) {
+                s.push(endYear > startYear ? `${startYear}-${endYear}` : startYear);
+            }
+            startYear = endYear = year;
+        }
+    });
+
+    console.log(s, s.join(', '));
+
+    return s.join(', ');
+}
+
 var stats = statsRaw.split('\n').map(function (stat) {
     var [force, region, id, ...numbers] = stat.split('\t');
     var [population, current, applications, appointments, ...years] = numbers.map(n => parseFloat(n));
 
-    var appointmentYears = years.slice(0, years.length / 2);
+    var applicationYears = yearSpan(years.slice(0, years.length / 2));
+    var appointmentYears = yearSpan(years.slice(years.length / 2));
 
     return {
         force,
@@ -27,7 +48,9 @@ var stats = statsRaw.split('\n').map(function (stat) {
         population,
         current,
         applications,
-        appointments
+        appointments,
+        applicationYears,
+        appointmentYears
     };
 }).filter(s => s.force);
 

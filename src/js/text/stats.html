@@ -41,4 +41,19 @@
         <div class="stats__row__value">{{#def.bar:it.stats.current}}</div>
     </div>
 </div>
-<p class="stat-note">Data from xxxx</p>
+<p class="stat-note">
+    {{?it.stats.applicationYears || it.stats.appointmentYears}}
+        Data for
+        {{?it.stats.applicationYears === it.stats.appointmentYears}}
+            applications and appointments from {{=it.stats.applicationYears}}
+        {{??}}
+            {{?it.stats.applicationYears}}
+                applications from {{=it.stats.applicationYears}}
+                {{?it.stats.appointmentYears}}and for{{?}}
+            {{?}}
+            {{?it.stats.appointmentYears}}
+                appointments from {{=it.stats.appointmentYears}}
+            {{?}}
+        {{?}}
+    {{?}}
+</p>
