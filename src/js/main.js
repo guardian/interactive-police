@@ -102,6 +102,8 @@ window.embed = function (el) {
             userLocationEl.blur();
         });
     }
+
+    iframeMessenger.enableAutoResize();
 };
 
 window.main = function (el) {
@@ -111,6 +113,6 @@ window.main = function (el) {
 
         return regionTemplateFn({region, forceHTMLs});
     }).join('');
-};
 
-iframeMessenger.enableAutoResize();
+    iframeMessenger.enableAutoResize();
+};
