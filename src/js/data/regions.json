@@ -38,5 +38,13 @@
     {
         'name': 'North West',
         'code': 'NW'
+    },
+    {
+        'name': 'Scotland',
+        'code': 'SC'
+    },
+    {
+        'name': 'Northern Ireland',
+        'code': 'NI'
     }
 ]
