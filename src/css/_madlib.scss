@@ -14,7 +14,8 @@
 }
 
 .madlib__input__text {
-    @include fs-bodyHeading(3);
+    @include f-headline;
+    font-size: 18px;
     font-weight: 600;
     background: none;
     width: 100%;
@@ -37,6 +38,10 @@
 
     &:-ms-input-placeholder {
        color: #767676;
+    }
+
+    &:valid {
+        text-transform: uppercase;
     }
 }
 
