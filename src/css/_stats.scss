@@ -20,12 +20,14 @@ $d-sep: 4px;
 }
 .stats__row__value {
     padding-bottom: 8px;
+    @include mq(520px) {
+        width: 520px;
+    }
 }
 
 @include mq(tablet) {
     .stats {
         display: table;
-        width: 100%;
         border-collapse: collapse;
     }
 
@@ -42,7 +44,7 @@ $d-sep: 4px;
     }
 
     .stats__row__desc {
-        width: 190px;
+        max-width: 190px;
         padding-right: 20px;
     }
 }
@@ -54,16 +56,15 @@ $d-sep: 4px;
 }
 
 .stat-bar {
-    background-color: #f1f1f1;
-    @include mq(mobileLandscape) {
-        background-color: transparent;
-        background-image: url(assets/imgs/officer-bg.svg);
+
+    &.stat-bar--c {
+        opacity: 0.4;
     }
 }
 
 .stat-bar__part {
     background-color: #b72266;
-    @include mq(mobileLandscape) {
+    @include mq(540px) {
         background-color: transparent;
         background-image: url(assets/imgs/officer.svg);
     }

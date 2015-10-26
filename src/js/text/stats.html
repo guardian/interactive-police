@@ -1,6 +1,6 @@
 {{##def.bar:percentage:
     {{?percentage}}
-        <div class="stat-bar" style="width: {{=it.stats.population.bme / it.max * 100}}%">
+        <div class="stat-bar stat-bar--{{=percentage.c}}" style="width: {{=it.stats.population.bme / it.max * 100}}%">
             <div class="stat-bar__part" style="width: {{=percentage.bme / it.stats.population.bme * 100}}%"></div>
         </div>
         {{?percentage.ns > 0}}<div class="stat-ns">{{=(percentage.ns * 100).toFixed(1)}}% not stated</div>{{?}}
