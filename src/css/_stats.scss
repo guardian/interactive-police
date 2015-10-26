@@ -60,8 +60,14 @@ $d-sep: 4px;
 
 .stat-bar__part {
     background-color: #b72266;
+    .stats__row--community & {
+        background-color: #aaa;
+    }
+    .stats__row--force & {
+        background-color: #83003c;
+    }
     @include mq(540px) {
-        background-color: transparent;
+        background-color: transparent !important;
         background-image: url(assets/imgs/officer.svg);
         .stats__row--community & {
             background-image: url(assets/imgs/officer-bg.svg);
