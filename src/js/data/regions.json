@@ -1,50 +1,62 @@
 [
     {
         'name': 'London',
-        'code': 'LN'
+        'code': 'LN',
+        'copy': 'Both of the capital’s police forces were in the 10 worst in the country for the proportions of appointments made, when compared with the local populations. However, only a few thousand people live in the area covered by City of London police and the force mainly concentrates on specialist operations, rather than general policing.'
     },
     {
         'name': 'East of England',
-        'code': 'EE'
+        'code': 'EE',
+        'copy': 'Some of the forces did relatively well - Norfolk Constabulary, in particular appointed roughly a proportionate number of BAME officers, when compared with its local population. Bedfordshire police’s record on appointments, however, was one of the worst in the country.'
     },
     {
         'name': 'South East',
-        'code': 'SE'
+        'code': 'SE',
+        'copy': 'Another region to have two forces among the country’s 10 worst for appointments: Surrey and Thames Valley police. While Surrey only provided data from one year, it said no newly appointed officers defined themselves as BAME. A large proportion preferred not to say what their background was.'
     },
     {
         'name': 'South West',
-        'code': 'SW'
+        'code': 'SW',
+        'copy': 'While none of the forces in the south west is ranked among the country’s least representative in terms of appointments, not a single new officer appointed between 2007 and 2014 self-identified as BAME. Those who did not refer to themselves as white refused to define their ethnic background.'
     },
     {
         'name': 'West Midlands',
-        'code': 'WM'
+        'code': 'WM',
+        'copy': 'The West Midlands force, one of the four in the region of the same name, was in the bottom 10 forces in the county for appointments. Nominally, it gave jobs to a large number of officers in 2014-5; the period for which it provided data. But that was way below the share of BAME people in the local population.'
     },
     {
         'name': 'East Midlands',
-        'code': 'EM'
+        'code': 'EM',
+        'copy': 'One of the regions in which the forces consistently reported disproportionately low numbers. Particularly striking was the fact that only about 5% of the officers Nottinghamshire Police appointed between 2005 and 2014 were from BAME backgrounds, when more than 11% of the local population were.'
     },
     {
         'name': 'Yorkshire & the Humber',
-        'code': 'YH'
+        'code': 'YH',
+        'copy': 'Another region to have two forces in the bottom 10 on appointments: West Yorkshire police and South Yorkshire police. It should be noted that the latter provided data only from 2014, but it did not appoint a single BAME officer in that year.'
     },
     {
         'name': 'North West',
-        'code': 'NW'
+        'code': 'NW',
+        'copy': 'Greater Manchester police was among the bottom 10 in the country for appointments, as compared with the local population’s ethnic mix. It is also home to the only force in the country that reported appointing a slightly higher rate.'
     },
     {
         'name': 'North East',
-        'code': 'NE'
+        'code': 'NE',
+        'copy': 'The region is home to another force &ndash; Cleveland police &ndash; that did not appoint any BAME officers in the years for which it provided data: 2014-15.'
     },
     {
         'name': 'Wales',
-        'code': 'WA'
+        'code': 'WA',
+        'copy': 'Another region without a force in the bottom 10 on appointments. Each, however, still reported giving jobs to a disproportionately small number of BAME people. South Wales police’s record in that respect was the worst in Wales.'
     },
     {
         'name': 'Scotland',
-        'code': 'SC'
+        'code': 'SC',
+        'copy': 'One of the two regions with a single police force. Police Scotland provided relatively limited data and a high rate of people preferred not to disclose their ethnic backgrounds.'
     },
     {
         'name': 'Northern Ireland',
-        'code': 'NI'
+        'code': 'NI',
+        'copy': 'The other UK region with only one force. Its record on attracting Catholic recruits following the Patten reforms was cited as good practice.'
     }
 ]

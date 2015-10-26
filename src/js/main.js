@@ -68,6 +68,7 @@ window.embed = function (el) {
     var userLocationEl = el.querySelector('.js-gps');
 
     window.addEventListener('show-force', evt => {
+        el.querySelector('.placeholder').style.display = 'none';
         var forceStats = stats.find(s => s.id === evt.detail.forceId);
         statsEl.innerHTML = statsTemplateFn({'stats': forceStats, 'max': maxPopulation});
     });

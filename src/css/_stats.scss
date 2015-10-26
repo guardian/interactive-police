@@ -66,7 +66,7 @@ $d-sep: 4px;
     .stats__row--force & {
         background-color: #83003c;
     }
-    @include mq(540px) {
+    @include mq(520px) {
         background-color: transparent !important;
         background-image: url(assets/imgs/officer.svg);
         .stats__row--community & {

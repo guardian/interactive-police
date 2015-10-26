@@ -82,7 +82,7 @@ h2 {
 // EMBED ONLY
 .locate {
     @include fs-bodyHeading(3);
-    color: #bdbdbd;
+    color: #333;
     line-height: 38px;
     padding-bottom: 3px;
     border-bottom: 1px solid #dcdcdc;
@@ -99,6 +99,7 @@ h2 {
     text-decoration: none;
     background-color: #005689;
     padding: 0 5px 0 14px;
+    margin: 10px 0 0;
     &:hover {
         background-color: #003656;
     }
@@ -107,4 +108,10 @@ h2 {
         display: inline-block;
         vertical-align: middle;
     }
+}
+
+.placeholder {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
 }
