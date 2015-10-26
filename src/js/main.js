@@ -96,7 +96,6 @@ window.embed = function (el) {
         });
     }
 
-    iframeMessenger.enableAutoResize();
     sendEvent('show-force', {'forceId': 'overall'});
 };
 
@@ -108,3 +107,5 @@ window.main = function (el) {
         return regionTemplateFn({region, forceHTMLs});
     }).join('');
 };
+
+iframeMessenger.enableAutoResize();

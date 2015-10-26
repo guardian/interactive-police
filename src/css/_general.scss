@@ -74,7 +74,7 @@ h2 {
 
     @include mq(leftCol) {
         width: 150px;
-        margin-top: 10px;
+        margin: 10px 0 0;
         position: absolute;
         top: 100%;
     }
