@@ -63,6 +63,9 @@ function locateForce(lat, lng) {
     });
 }
 
+
+var scotland = /^(?:AB|CA65(?:A|B|D|E|H[ABDEFGHJLNPQRSWXYZ]|J|L[ABDE])|D(?:D|G(?:1(?:1|2|3|4|9|0|65(?:A|B|D|E|F|G|H[ABDEFGHJLNPQRSWXY]|J[DEFGHJLNPQRSTUWXYZ]|L|N|Q|U|W|X|Y))|2|3|4|5|6|7|8|9))|EH|FK|G[123459678]|HS|IV|K[AWY]|ML|P[AH]|TD(?:1(?:1|2(?:A|B|D|E|H|J|L|N|P|Q|R|S|T|U|W|Y|4(?:A|B|D|E|F|H|J|L|N|QU|W[ADX]|XE|Y)|9)|3|9|0|4|51(?:BT|S[UZ]|T[DEFGHJLNPRSTW]|U[FGHJLSWZ]|W[YZ]|X[ABGHJLNQTUWZ]))|2|3|4|5|6|7|8|9(?:0(?:A|B|D|E|H|J|L|N|P|Q|R|S|T[ABDEFGHLNQUXY]|W|Y|Z)|1|7|8|9))|Z)/;
+
 window.embed = function (el) {
     var statsEl = el.querySelector('.js-stats');
     var userLocationEl = el.querySelector('.js-gps');
@@ -74,15 +77,18 @@ window.embed = function (el) {
     });
 
     madlib(el.querySelector('.js-postcode'), loc => {
-
+        // locateForce doesn't do NI or Scotland
         if (loc.slice(0, 2).toUpperCase() === 'BT') {
             sendEvent('show-force', {'forceId': 'northern-ireland'});
+        } else if (scotland.test(loc.toUpperCase())) {
+            sendEvent('show-force', {'forceId': 'scotland'});
+        } else {
+            geocode(loc, (err, resp) => {
+                if (!err) {
+                    locateForce(resp.features[0].center[1], resp.features[0].center[0]);
+                }
+            });
         }
-        geocode(loc, (err, resp) => {
-            if (!err) {
-                locateForce(resp.features[0].center[1], resp.features[0].center[0]);
-            }
-        });
     });
 
     if ('geolocation' in navigator) {
