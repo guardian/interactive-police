@@ -17,7 +17,7 @@
     {
         'name': 'South West',
         'code': 'SW',
-        'copy': 'While none of the forces in the south west is ranked among the country’s least representative in terms of appointments, just one new officer appointed between 2007 and 2014 self-identified as BAME. Those who did not refer to themselves as white refused to define their ethnic background.'
+        'copy': 'While none of the forces in the south west are ranked among the country’s least representative in terms of appointments, in Dorset, just one new officer appointed between 2007 and 2014 self-identified as BAME. Those who did not refer to themselves as white refused to define their ethnic background.'
     },
     {
         'name': 'West Midlands',
@@ -37,12 +37,12 @@
     {
         'name': 'North West',
         'code': 'NW',
-        'copy': 'Greater Manchester police was among the bottom 10 in the country for appointments, as compared with the local population’s ethnic mix. It is also home to the only force in the country that reported appointing a slightly higher rate.'
+        'copy': 'Greater Manchester police was among the bottom 10 in the country for appointments, as compared with the local population’s ethnic mix. North West is also home to the only force in the country that reported appointing a slightly higher rate.'
     },
     {
         'name': 'North East',
         'code': 'NE',
-        'copy': 'The region is home to another force &ndash; Cleveland police &ndash; that did not appoint any BAME officers in the years for which it provided data: 2014-15.'
+        'copy': 'This region is home to another force &ndash; Cleveland police &ndash; that did not appoint any BAME officers in the years for which it provided data: 2014-15.'
     },
     {
         'name': 'Wales',
