@@ -23,6 +23,17 @@ h2 {
     margin: 0 0 12px 0;
 }
 
+.data {
+    @include fs-textSans(2);
+    color: #bdbdbd;
+    @include mq(leftCol) {
+        margin-left: 160px;
+    }
+    @include mq(wide) {
+        margin-left: 240px;
+    }
+}
+
 // MAIN ONLY
 .forces {
 }
@@ -31,14 +42,9 @@ h2 {
     clear: left;
     overflow: hidden;
 
-    border-top: 1px solid #dcdcdc;
-    margin-top: 10px;
-    padding-top: 10px;
-    &:first-child {
-        border-top: 0;
-        margin-top: 0;
-        padding-top: 0;
-    }
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .region-title {
