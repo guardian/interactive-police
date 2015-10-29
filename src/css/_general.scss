@@ -24,7 +24,7 @@ h2 {
 }
 
 .data {
-    @include fs-textSans(2);
+    @include fs-textSans(1);
     color: #bdbdbd;
     @include mq(leftCol) {
         margin-left: 160px;

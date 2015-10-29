@@ -81,6 +81,9 @@
     </div>
 </div>
 <p class="stat-note">
+    {{?it.stats.name === 'Derbyshire Constabulary'}}
+        Data provided for applications and appointments did not indicate a time period
+    {{?}}
     {{?it.stats.applicationYears || it.stats.appointmentYears}}
         Data provided for
         {{?it.stats.applicationYears === it.stats.appointmentYears}}
