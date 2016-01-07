@@ -34,6 +34,18 @@ h2 {
     }
 }
 
+.amendment {
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 100px;
+        margin-right: 2px;
+        background-color: #bdbdbd;
+    }
+}
+
 // MAIN ONLY
 .forces {
 }
